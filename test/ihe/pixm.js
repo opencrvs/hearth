@@ -122,7 +122,7 @@ const requestAndAssertParameters = (tp, t, done) => {
 
   request({
     url: `http://localhost:3447/fhir/Patient/$ihe-pix?${escapedQueryString}`,
-    headers: headers,
+    headers,
     json: true
   }, (err, res, body) => {
     // Then
@@ -270,7 +270,7 @@ const requestAndAssertOperationOutcome = (tp, t, done) => {
   // When
   request({
     url: `http://localhost:3447/fhir/Patient/$ihe-pix?${tp.sourceIdentifier}&${tp.targetSystem}`,
-    headers: headers,
+    headers,
     json: true
   }, (err, res, body) => {
     // Then

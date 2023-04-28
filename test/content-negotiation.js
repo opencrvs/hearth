@@ -179,7 +179,7 @@ tap.test('_format parameter support', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=1007211154902&_format=text/turtle',
-        headers: headers
+        headers
       }, (err, res, body) => {
         t.error(err)
 
@@ -196,7 +196,7 @@ tap.test('_format parameter support', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=1007211154902&_format=application/fhir%2Bxml',
-        headers: headers
+        headers
       }, (err, res, body) => {
         t.error(err)
 
@@ -227,7 +227,7 @@ tap.test('_format parameter support', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=1007211154902&_format=application/fhir%2Bjson',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)

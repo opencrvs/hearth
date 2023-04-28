@@ -45,7 +45,7 @@ tap.test('organization fetch all organizations', (t) => {
   basicOrganizationTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/Organization',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -66,7 +66,7 @@ tap.test('organization should support searches on identifier', (t) => {
   basicOrganizationTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/Organization?identifier=543219876',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -85,7 +85,7 @@ tap.test('organization should support searches on identifier with a system speci
   basicOrganizationTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/Organization?identifier=pshr:practice:number|543219876',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -104,7 +104,7 @@ tap.test('organization should support searches with a _summary flag', (t) => {
   basicOrganizationTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/Organization?_summary=true',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)

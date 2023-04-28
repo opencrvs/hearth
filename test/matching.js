@@ -100,7 +100,7 @@ const requestAndAssertResponseBundle = (tp, t, done) => {
   // When
   request({
     url: 'http://localhost:3447/fhir/Patient/$match',
-    headers: headers,
+    headers,
     method: 'POST',
     body: tp.body,
     json: true
@@ -139,7 +139,7 @@ tap.test('should return 404 if no certain matches found and onlyCertainMatches p
       url: 'http://localhost:3447/fhir/Patient/$match',
       method: 'POST',
       body: testBody,
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       // Then
@@ -173,7 +173,7 @@ tap.test('should return 409 if multiple certain matches found and onlyCertainMat
       url: 'http://localhost:3447/fhir/Patient/$match',
       method: 'POST',
       body: testBody,
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       // Then
@@ -206,7 +206,7 @@ tap.test('should return 200 if no matches are found and onlyCertainMatches not t
         url: 'http://localhost:3447/fhir/Patient/$match',
         method: 'POST',
         body: testBody,
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         // Then
@@ -255,7 +255,7 @@ tap.test('should return 200 and a bundle of patients with search scores exactly 
 
     const testParams = {
       body: testBody,
-      expectedResponse: expectedResponse,
+      expectedResponse,
       statusCode: 200
     }
 
@@ -310,7 +310,7 @@ tap.test('should return 200 and a bundle of patients matching on name.given=leve
 
     const testParams = {
       body: testBody,
-      expectedResponse: expectedResponse,
+      expectedResponse,
       statusCode: 200
     }
 
@@ -337,7 +337,7 @@ tap.test('should return 200 and a bundle of patients exactly matching the phonet
         // When
         request({
           url: 'http://localhost:3447/fhir/Patient/$match',
-          headers: headers,
+          headers,
           method: 'POST',
           body: testBody,
           json: true
@@ -375,7 +375,7 @@ tap.test('should return 200 and a bundle of patients matching the phonetic repre
         // When
         request({
           url: 'http://localhost:3447/fhir/Patient/$match',
-          headers: headers,
+          headers,
           method: 'POST',
           body: testBody,
           json: true
@@ -447,7 +447,7 @@ tap.test('should discriminate using an exact match', (t) => {
 
     const testParams = {
       body: testBody,
-      expectedResponse: expectedResponse,
+      expectedResponse,
       statusCode: 200
     }
 
@@ -510,7 +510,7 @@ tap.test('should discriminate using a partial match', (t) => {
 
     const testParams = {
       body: testBody,
-      expectedResponse: expectedResponse,
+      expectedResponse,
       statusCode: 200
     }
 
@@ -551,7 +551,7 @@ tap.test('should discriminate using a exact match on representation', (t) => {
             // When
             request({
               url: 'http://localhost:3447/fhir/Patient/$match',
-              headers: headers,
+              headers,
               method: 'POST',
               body: testBody,
               json: true
@@ -598,7 +598,7 @@ tap.test('should return an error when an invalid algorithm is used for in the di
       // When
       request({
         url: 'http://localhost:3447/fhir/Patient/$match',
-        headers: headers,
+        headers,
         method: 'POST',
         body: testBody,
         json: true

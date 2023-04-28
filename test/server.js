@@ -96,7 +96,7 @@ const runAcceptTest = (t, accept, expectAccept) => {
         headers: _.extend(
           env.getTestAuthHeaders(env.users.sysadminUser.email),
           {
-            accept: accept
+            accept
           }
         )
       }, (err, res, body) => {

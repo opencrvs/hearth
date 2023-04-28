@@ -113,7 +113,7 @@ tap.test('Matching Queue Plugin - should add the patient resource to the matchin
     // when
     request.post({
       url: 'http://localhost:3447/fhir/Patient',
-      headers: headers,
+      headers,
       body: resource,
       json: true
     }, (err, res, body) => {
@@ -146,7 +146,7 @@ tap.test('Matching Queue Plugin - should add the patient resource to the matchin
     // save
     request.post({
       url: 'http://localhost:3447/fhir/Patient',
-      headers: headers,
+      headers,
       body: resource,
       json: true
     }, (err, res, body) => {
@@ -156,7 +156,7 @@ tap.test('Matching Queue Plugin - should add the patient resource to the matchin
 
       const update = {
         resourceType: 'Patient',
-        id: id,
+        id,
         active: true,
         name: [
           {
@@ -168,7 +168,7 @@ tap.test('Matching Queue Plugin - should add the patient resource to the matchin
       // update
       request.put({
         url: `http://localhost:3447/fhir/Patient/${id}`,
-        headers: headers,
+        headers,
         body: update,
         json: true
       }, (err, res) => {
@@ -177,7 +177,7 @@ tap.test('Matching Queue Plugin - should add the patient resource to the matchin
 
         request({
           url: `http://localhost:3447/fhir/Patient/${id}`,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           t.error(err)
@@ -214,7 +214,7 @@ tap.test('Matching Queue Plugin - should return 400 if posted parameters resourc
     // when
     request.post({
       url: 'http://localhost:3447/fhir/Procedure',
-      headers: headers,
+      headers,
       body: resource,
       json: true
     }, (err, res, body) => {
@@ -242,7 +242,7 @@ tap.test('Matching Queue Plugin - should add the location resource to the matchi
     // when
     request.post({
       url: 'http://localhost:3447/fhir/Location',
-      headers: headers,
+      headers,
       body: resource,
       json: true
     }, (err, res, body) => {

@@ -52,7 +52,7 @@ tap.test('Composition - should return all results when there are no parameters',
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       // then
@@ -76,7 +76,7 @@ tap.test('Composition - should fail for invalid Composition resource ID', (t) =>
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition/77ssssssssssssssssssssss',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       // then
@@ -96,7 +96,7 @@ tap.test('Composition - should fetch Composition for valid resource ID', (t) => 
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       // then
@@ -107,7 +107,7 @@ tap.test('Composition - should fetch Composition for valid resource ID', (t) => 
 
       request({
         url: `http://localhost:3447/fhir/Composition/${body.entry[0].resource.id}`,
-        headers: headers,
+        headers,
         json: true
       }, (err, res, resource) => {
         // then
@@ -125,7 +125,7 @@ tap.test('composition should be found with matching status', (t) => {
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?status=final',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -145,7 +145,7 @@ tap.test('composition should not find any result with an unknown status', (t) =>
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?status=invalid',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -164,7 +164,7 @@ tap.test('composition should be found with matching section.entry reference', (t
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?entry=Condition/stroke',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -185,7 +185,7 @@ tap.test('composition should not find any result with an unknown section.entry r
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?entry=invalid',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -204,7 +204,7 @@ tap.test('composition should be found matching multiple section.entry reference'
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?entry=Condition/example-one&entry=Condition/example-two&entry=Condition/example-three',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -225,7 +225,7 @@ tap.test('multiple compositions should be found matching section.entry reference
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?entry=Condition/example-1',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -248,7 +248,7 @@ tap.test('composition should not be found when section.entry does not match both
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?entry=Condition/stroke&entry=undefined',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -267,7 +267,7 @@ tap.test('composition should be found with matching patient', (t) => {
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?patient=Patient/example-patient-id',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -287,7 +287,7 @@ tap.test('composition should be found with matching subject', (t) => {
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?subject=Patient/example-patient-id',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -307,7 +307,7 @@ tap.test('composition should not be found when subject.reference does not match 
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?patient=123',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -326,7 +326,7 @@ tap.test('composition should not be found when subject.reference does not match 
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?subject=123',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -345,7 +345,7 @@ tap.test('composition should find some results with a specific type', (t) => {
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?type=abc123def',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -363,7 +363,7 @@ tap.test('composition should find zero results when type does not exist', (t) =>
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?type=noneexisting',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -379,7 +379,7 @@ tap.test('composition should find results with \'system\' and \'code\' being sup
   CompositionTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Composition?type=http://loinc.org|abc123def',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)

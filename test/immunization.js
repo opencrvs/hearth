@@ -62,7 +62,7 @@ tap.test('immunization should support searches on encounter', (t) => {
   basicImmunizationTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/Immunization?encounter=22222',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)

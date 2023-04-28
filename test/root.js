@@ -59,7 +59,7 @@ tap.test('Transaction should process all entries correctly', (t) => {
           request({
             url: 'http://localhost:3447/fhir',
             method: 'POST',
-            headers: headers,
+            headers,
             body: transaction,
             json: true
           }, (err, res, body) => {
@@ -121,7 +121,7 @@ tap.test('Transaction should revert when an operation (excluding reads) fails', 
       request({
         url: 'http://localhost:3447/fhir',
         method: 'POST',
-        headers: headers,
+        headers,
         body: transaction,
         json: true
       }, (err, res, body) => {
@@ -156,7 +156,7 @@ tap.test('Transaction should pass even when reads fail', (t) => {
       request({
         url: 'http://localhost:3447/fhir',
         method: 'POST',
-        headers: headers,
+        headers,
         body: transaction,
         json: true
       }, (err, res, body) => {
@@ -196,7 +196,7 @@ tap.test('Transaction should resolve references correctly when processing a tran
     request({
       url: 'http://localhost:3447/fhir',
       method: 'POST',
-      headers: headers,
+      headers,
       body: _.cloneDeep(require('./resources/Transaction-reference.json')),
       json: true
     }, (err, res, body) => {
@@ -225,8 +225,8 @@ tap.test('Transaction should resolve references correctly when processing a tran
       request({
         url: 'http://localhost:3447/fhir',
         method: 'POST',
-        headers: headers,
-        body: body,
+        headers,
+        body,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -251,7 +251,7 @@ tap.test('Transaction should return a 400 when the bundle type is incorrect', (t
     request({
       url: 'http://localhost:3447/fhir',
       method: 'POST',
-      headers: headers,
+      headers,
       body: _.cloneDeep(tx),
       json: true
     }, (err, res, body) => {
@@ -277,7 +277,7 @@ tap.test('Batch should succeed even when an operation fails', (t) => {
       request({
         url: 'http://localhost:3447/fhir',
         method: 'POST',
-        headers: headers,
+        headers,
         body: batch,
         json: true
       }, (err, res, body) => {
@@ -317,7 +317,7 @@ tap.test('Transaction should revert delete operation when operation (other than 
         request({
           url: 'http://localhost:3447/fhir',
           method: 'POST',
-          headers: headers,
+          headers,
           body: transaction,
           json: true
         }, (err, res, body) => {
@@ -346,7 +346,7 @@ tap.test('Document bundles should get processed successfully', (t) => {
     request({
       url: 'http://localhost:3447/fhir',
       method: 'POST',
-      headers: headers,
+      headers,
       body: doc,
       json: true
     }, (err, res, body) => {
@@ -388,7 +388,7 @@ tap.test('Document bundles should get processed successfully even when a resourc
       request({
         url: 'http://localhost:3447/fhir',
         method: 'POST',
-        headers: headers,
+        headers,
         body: doc,
         json: true
       }, (err, res, body) => {

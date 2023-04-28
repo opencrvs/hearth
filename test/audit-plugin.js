@@ -292,7 +292,7 @@ tap.test('Audit Plugin - create audit via fhirCore.create()', { autoend: true },
 
       request.post({
         url: 'http://localhost:3447/fhir/Patient',
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {

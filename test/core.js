@@ -37,7 +37,7 @@ const requestAndAssertResponseOperationOutcome = (tp, t, done) => {
   // When
   request({
     url: `http://localhost:3447/fhir/Patient/${tp.id}`,
-    headers: headers,
+    headers,
     json: true
   }, (err, res, body) => {
     // Then
@@ -64,7 +64,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
         const testParams = {
           id: 'non-existent-id',
-          expectedResponse: expectedResponse,
+          expectedResponse,
           statusCode: 404
         }
 
@@ -89,8 +89,8 @@ tap.test('Core', { autoend: true }, (t) => {
           }
 
           const testParams = {
-            id: id,
-            expectedResponse: expectedResponse,
+            id,
+            expectedResponse,
             statusCode: 410
           }
 
@@ -114,18 +114,18 @@ tap.test('Core', { autoend: true }, (t) => {
           request({
             url: `http://localhost:3447/fhir/Patient/${id}`,
             method: 'DELETE',
-            headers: headers,
+            headers,
             json: true
           }, (err, res, body) => {
             t.error(err)
             t.equal(res.statusCode, 204)
 
-            c.findOne({ id: id }, (err, doc) => {
+            c.findOne({ id }, (err, doc) => {
               t.error(err)
               t.notOk(doc)
 
               const cHistory = db.collection('Patient_history')
-              cHistory.findOne({ id: id }, (err, doc) => {
+              cHistory.findOne({ id }, (err, doc) => {
                 t.error(err)
                 t.ok(doc)
                 t.equal(doc.id, id, 'Deleted doc should exist in history')
@@ -151,18 +151,18 @@ tap.test('Core', { autoend: true }, (t) => {
           request({
             url: `http://localhost:3447/fhir/Patient/${id}?_purge=true`,
             method: 'DELETE',
-            headers: headers,
+            headers,
             json: true
           }, (err, res, body) => {
             t.error(err)
             t.equal(res.statusCode, 204)
 
-            c.findOne({ id: id }, (err, doc) => {
+            c.findOne({ id }, (err, doc) => {
               t.error(err)
               t.notOk(doc)
 
               const cHistory = db.collection('Patient_history')
-              cHistory.findOne({ id: id }, (err, doc) => {
+              cHistory.findOne({ id }, (err, doc) => {
                 t.error(err)
                 t.notOk(doc, 'Deleted doc should not exist in history')
 
@@ -187,18 +187,18 @@ tap.test('Core', { autoend: true }, (t) => {
           request({
             url: `http://localhost:3447/fhir/Patient/${id}?_purge=false`,
             method: 'DELETE',
-            headers: headers,
+            headers,
             json: true
           }, (err, res, body) => {
             t.error(err)
             t.equal(res.statusCode, 204)
 
-            c.findOne({ id: id }, (err, doc) => {
+            c.findOne({ id }, (err, doc) => {
               t.error(err)
               t.notOk(doc)
 
               const cHistory = db.collection('Patient_history')
-              cHistory.findOne({ id: id }, (err, doc) => {
+              cHistory.findOne({ id }, (err, doc) => {
                 t.error(err)
                 t.ok(doc)
                 t.equal(doc.id, id, 'Deleted doc should exist in history')
@@ -216,7 +216,7 @@ tap.test('Core', { autoend: true }, (t) => {
         request({
           url: 'http://localhost:3447/fhir/Patient/non-existent-id',
           method: 'DELETE',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           t.error(err)
@@ -254,7 +254,7 @@ tap.test('Core', { autoend: true }, (t) => {
           url: 'http://localhost:3447/fhir/Patient/$match',
           method: 'POST',
           body: testBody,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // Then
@@ -279,7 +279,7 @@ tap.test('Core', { autoend: true }, (t) => {
           url: 'http://localhost:3447/fhir/Patient/$match',
           method: 'POST',
           body: testBody,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // Then
@@ -304,7 +304,7 @@ tap.test('Core', { autoend: true }, (t) => {
           url: 'http://localhost:3447/fhir/Patient/$match',
           method: 'POST',
           body: testBody,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // Then
@@ -328,7 +328,7 @@ tap.test('Core', { autoend: true }, (t) => {
           url: 'http://localhost:3447/fhir/Patient/$match',
           method: 'POST',
           body: testBody,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // Then
@@ -352,7 +352,7 @@ tap.test('Core', { autoend: true }, (t) => {
           url: 'http://localhost:3447/fhir/Binary/$match',
           method: 'POST',
           body: testBody,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // Then
@@ -377,7 +377,7 @@ tap.test('Core', { autoend: true }, (t) => {
         // save
         request.post({
           url: 'http://localhost:3447/fhir/Patient',
-          headers: headers,
+          headers,
           body: resource,
           json: true
         }, (err, res, body) => {
@@ -395,7 +395,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
           request.put({
             url: `http://localhost:3447/fhir/Patient/${id}`,
-            headers: headers,
+            headers,
             body: updatedPerson,
             json: true
           }, (err, res) => {
@@ -424,7 +424,7 @@ tap.test('Core', { autoend: true }, (t) => {
         // save
         request.post({
           url: 'http://localhost:3447/fhir/Patient',
-          headers: headers,
+          headers,
           body: resource,
           json: true
         }, (err, res, body) => {
@@ -443,7 +443,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
           request.put({
             url: `http://localhost:3447/fhir/Patient/${id}`,
-            headers: headers,
+            headers,
             body: updatedPerson,
             json: true
           }, (err, res) => {
@@ -465,7 +465,7 @@ tap.test('Core', { autoend: true }, (t) => {
         // save
         request.post({
           url: 'http://localhost:3447/fhir/Patient',
-          headers: headers,
+          headers,
           body: resource,
           json: true
         }, (err, res, body) => {
@@ -484,7 +484,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
           request.put({
             url: `http://localhost:3447/fhir/Patient/${id}`,
-            headers: headers,
+            headers,
             body: updatedPerson,
             json: true
           }, (err, res) => {
@@ -516,7 +516,7 @@ tap.test('Core', { autoend: true }, (t) => {
         // save
         request.post({
           url: 'http://localhost:3447/fhir/Patient',
-          headers: headers,
+          headers,
           body: resource,
           json: true
         }, (err, res, body) => {
@@ -533,7 +533,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
           request.put({
             url: `http://localhost:3447/fhir/Patient/${id}`,
-            headers: headers,
+            headers,
             body: updatedPerson,
             json: true
           }, (err, res) => {
@@ -542,7 +542,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
             request.get({
               url: `http://localhost:3447/fhir/Patient/${id}/_history`,
-              headers: headers,
+              headers,
               json: true
             }, (err, res, body) => {
               t.error(err)
@@ -569,7 +569,7 @@ tap.test('Core', { autoend: true }, (t) => {
         // save
         request.post({
           url: 'http://localhost:3447/fhir/Patient',
-          headers: headers,
+          headers,
           body: resource,
           json: true
         }, (err, res, body) => {
@@ -588,7 +588,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
           request.put({
             url: `http://localhost:3447/fhir/Patient/${id}`,
-            headers: headers,
+            headers,
             body: updatedPerson,
             json: true
           }, (err, res) => {
@@ -597,7 +597,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
             request.get({
               url: `http://localhost:3447/fhir/Patient/${id}/_history?_since=${since}`,
-              headers: headers,
+              headers,
               json: true
             }, (err, res, body) => {
               t.error(err)
@@ -623,7 +623,7 @@ tap.test('Core', { autoend: true }, (t) => {
         // save
         request.post({
           url: 'http://localhost:3447/fhir/Patient',
-          headers: headers,
+          headers,
           body: resource,
           json: true
         }, (err, res, body) => {
@@ -640,7 +640,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
           request.put({
             url: `http://localhost:3447/fhir/Patient/${id}`,
-            headers: headers,
+            headers,
             body: updatedPerson,
             json: true
           }, (err, res) => {
@@ -653,7 +653,7 @@ tap.test('Core', { autoend: true }, (t) => {
             // save
             request.post({
               url: 'http://localhost:3447/fhir/Patient',
-              headers: headers,
+              headers,
               body: resource,
               json: true
             }, (err, res, body) => {
@@ -665,7 +665,7 @@ tap.test('Core', { autoend: true }, (t) => {
               // save
               request.post({
                 url: 'http://localhost:3447/fhir/Patient',
-                headers: headers,
+                headers,
                 body: resource,
                 json: true
               }, (err, res, body) => {
@@ -676,7 +676,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
                 request.delete({
                   url: `http://localhost:3447/fhir/Patient/${nikitaId}`,
-                  headers: headers,
+                  headers,
                   json: true
                 }, (err, res, body) => {
                   t.error(err)
@@ -684,7 +684,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
                   request.get({
                     url: 'http://localhost:3447/fhir/Patient/_history',
-                    headers: headers,
+                    headers,
                     json: true
                   }, (err, res, body) => {
                     t.error(err)
@@ -721,7 +721,7 @@ tap.test('Core', { autoend: true }, (t) => {
         // save
         request.post({
           url: 'http://localhost:3447/fhir/Patient',
-          headers: headers,
+          headers,
           body: resource,
           json: true
         }, (err, res, body) => {
@@ -738,7 +738,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
           request.put({
             url: `http://localhost:3447/fhir/Patient/${id}`,
-            headers: headers,
+            headers,
             body: updatedPerson,
             json: true
           }, (err, res) => {
@@ -751,7 +751,7 @@ tap.test('Core', { autoend: true }, (t) => {
             // save
             request.post({
               url: 'http://localhost:3447/fhir/Patient',
-              headers: headers,
+              headers,
               body: resource,
               json: true
             }, (err, res, body) => {
@@ -765,7 +765,7 @@ tap.test('Core', { autoend: true }, (t) => {
               // save
               request.post({
                 url: 'http://localhost:3447/fhir/Patient',
-                headers: headers,
+                headers,
                 body: resource,
                 json: true
               }, (err, res, body) => {
@@ -776,7 +776,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
                 request.delete({
                   url: `http://localhost:3447/fhir/Patient/${nikitaId}`,
-                  headers: headers,
+                  headers,
                   json: true
                 }, (err, res, body) => {
                   t.error(err)
@@ -784,7 +784,7 @@ tap.test('Core', { autoend: true }, (t) => {
 
                   request.get({
                     url: `http://localhost:3447/fhir/Patient/_history?_since=${since}`,
-                    headers: headers,
+                    headers,
                     json: true
                   }, (err, res, body) => {
                     t.error(err)
