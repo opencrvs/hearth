@@ -48,7 +48,7 @@
     "cross-env": "^5.1.6",
     "faker": "^4.1.0",
     "glossy": "^0.1.7",
-    "libxmljs": "^0.19.7",
+    "libxmljs": "^0.19.10",
     "license-checker": "^25.0.1",
     "mustache": "^3.1.0",
     "neo-async": "^2.5.1",
@@ -72,7 +72,7 @@
   "resolutions": {
     "lodash": "4.17.21",
     "xmlbuilder": "9.0.7",
-    "libxmljs": "0.19.7",
+    "libxmljs": "0.19.10",
     "tar": "4.4.19",
     "qs": "6.11.0"
   }
