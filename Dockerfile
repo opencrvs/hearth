@@ -1,4 +1,4 @@
-FROM node:erbium
+FROM node:gallium-bullseye-slim
 
 # install dependencies
 ADD package.json yarn.lock /src/hearth/
