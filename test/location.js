@@ -51,7 +51,7 @@ tap.test('Location tests', { autoend: true }, (t) => {
           // when
           request({
             url: 'http://localhost:3447/fhir/Location?name=Greenwood',
-            headers: headers,
+            headers,
             json: true
           }, (err, res, body) => {
             // then
@@ -83,7 +83,7 @@ tap.test('Location tests', { autoend: true }, (t) => {
           // when
           request({
             url: 'http://localhost:3447/fhir/Location',
-            headers: headers,
+            headers,
             json: true
           }, (err, res, body) => {
             // then
@@ -115,7 +115,7 @@ tap.test('Location tests', { autoend: true }, (t) => {
         // when
         request({
           url: `http://localhost:3447/fhir/Location/${ref.split('/').pop()}?_summary=true`,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -146,7 +146,7 @@ tap.test('Location tests', { autoend: true }, (t) => {
         // when
         request({
           url: `http://localhost:3447/fhir/Location/${ref.split('/').pop()}`,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -171,7 +171,7 @@ tap.test('Location tests', { autoend: true }, (t) => {
       // when
       request({
         url: 'http://localhost:3447/fhir/Location?notsupported=meh',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         // then

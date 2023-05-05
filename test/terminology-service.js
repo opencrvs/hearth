@@ -44,7 +44,7 @@ tap.test('ValueSet should return an error when either system or code not supplie
   TerminologyServiceTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/ValueSet/$lookup?system=hearth:valueset:procedure-codes',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -65,7 +65,7 @@ tap.test('ValueSet should support searches on system and code and return no resu
   TerminologyServiceTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/ValueSet/$lookup?system=FakeSystem&code=0001',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -86,7 +86,7 @@ tap.test('ValueSet should support searches on system and code', (t) => {
   TerminologyServiceTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/ValueSet/$lookup?system=hearth:valueset:procedure-codes&code=0001',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)

@@ -58,7 +58,7 @@ tap.test('Binary - should return all results when there are no parameters', (t) 
   binaryTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Binary',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       // then
@@ -82,7 +82,7 @@ tap.test('Binary - should search by contentType', (t) => {
   binaryTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Binary?contenttype=application/pdf',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       // then
@@ -106,7 +106,7 @@ tap.test('Binary - should search by contentType - none found', (t) => {
   binaryTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Binary?contenttype=application/x-binary',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       // then
@@ -126,7 +126,7 @@ tap.test('Binary - should fail for invalid Binary resource ID', (t) => {
   binaryTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Binary/77ssssssssssssssssssssss',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       // then
@@ -146,7 +146,7 @@ tap.test('Binary - should search for a specific Binary document', (t) => {
   binaryTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Binary?contenttype=application/xml',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, searchBody) => {
       // then
@@ -154,7 +154,7 @@ tap.test('Binary - should search for a specific Binary document', (t) => {
 
       request({
         url: `http://localhost:3447/fhir/Binary/${searchBody.entry[0].resource.id}`,
-        headers: headers,
+        headers,
         json: true
       }, (err, res, readBody) => {
         // then
@@ -176,7 +176,7 @@ tap.test('Binary - should search for a specific Binary document, and return the 
   binaryTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Binary?contenttype=application/pdf',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, searchBody) => {
       // then
@@ -214,7 +214,7 @@ tap.test('Binary - should search for a specific Binary document, and return the 
   binaryTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Binary?contenttype=application/pdf',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, searchBody) => {
       // then
@@ -256,7 +256,7 @@ tap.test('Binary - preInteractionHandlers.create - should insert binary data', (
       // when
       request.post({
         url: 'http://localhost:3447/fhir/Binary',
-        headers: headers,
+        headers,
         body: binaryResource,
         json: true
       }, (err, res, body) => {
@@ -310,7 +310,7 @@ tap.test('Binary - preInteractionHandlers.update - should update reference to bi
       // when
       request.post({
         url: 'http://localhost:3447/fhir/Binary',
-        headers: headers,
+        headers,
         body: binaryResource,
         json: true
       }, (err, res, body) => {
@@ -332,7 +332,7 @@ tap.test('Binary - preInteractionHandlers.update - should update reference to bi
             br.contentType = 'image/jpeg'
             request.put({
               url: 'http://localhost:3447/fhir/Binary/' + idToUpdate,
-              headers: headers,
+              headers,
               body: br,
               json: true
             }, (err, res, body) => {
@@ -386,7 +386,7 @@ tap.test('Binary - preInteractionHandlers writeToGridFS - should return bad requ
       delete testResource.content
       request.post({
         url: 'http://localhost:3447/fhir/Binary',
-        headers: headers,
+        headers,
         body: testResource,
         json: true
       }, (err, res, body) => {
@@ -413,7 +413,7 @@ tap.test('Binary - postInteractionHandlers.read - should fetch binary resource w
   binaryTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Binary?contenttype=application/xml',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, searchBody) => {
       // then
@@ -422,7 +422,7 @@ tap.test('Binary - postInteractionHandlers.read - should fetch binary resource w
       // check request binary data is same as original data
       request({
         url: `http://localhost:3447/fhir/Binary/${searchBody.entry[0].resource.id}`,
-        headers: headers,
+        headers,
         json: true
       }, (err, res, readBody) => {
         // then
@@ -443,7 +443,7 @@ tap.test('Binary - postInteractionHandlers.search - should fetch searched binary
   binaryTestEnv(t, (db, refs, done) => {
     request({
       url: 'http://localhost:3447/fhir/Binary?contenttype=application/pdf',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       // then

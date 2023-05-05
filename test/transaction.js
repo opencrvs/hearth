@@ -233,7 +233,7 @@ tap.test('Transaction resource .revertDelete() should restore a newly deleted re
         const c = db.collection(resourceType)
         const cHistory = db.collection(`${resourceType}_history`)
 
-        c.findOne({ id: id }, { fields: { id: 1 } }, (err, doc) => {
+        c.findOne({ id }, { fields: { id: 1 } }, (err, doc) => {
           t.error(err)
           t.equals('' + doc.id, id, 'Patient has been created')
 
@@ -247,11 +247,11 @@ tap.test('Transaction resource .revertDelete() should restore a newly deleted re
             t.equal(res.statusCode, 204)
             t.notOk(res.body, 'Does not return body')
 
-            c.findOne({ id: id }, {}, (err, doc) => {
+            c.findOne({ id }, {}, (err, doc) => {
               t.error(err)
               t.notOk(doc, 'Resource should be deleted')
 
-              cHistory.find({ id: id }).toArray((err, docs) => {
+              cHistory.find({ id }).toArray((err, docs) => {
                 t.error(err)
                 t.equals('' + docs[0].id, id, 'Delete entry should be in history collection')
                 t.equals('' + docs[1].id, id, 'Deleted resource should be in history collection')
@@ -261,11 +261,11 @@ tap.test('Transaction resource .revertDelete() should restore a newly deleted re
                   t.error(err)
                   t.true(success, 'should respond with success status as true')
 
-                  c.findOne({ id: id }, {}, (err, doc) => {
+                  c.findOne({ id }, {}, (err, doc) => {
                     t.error(err)
                     t.equals('' + doc.id, id, 'Deleted resource has been restored')
 
-                    cHistory.findOne({ id: id }, (err, doc) => {
+                    cHistory.findOne({ id }, (err, doc) => {
                       t.error(err)
                       t.notOk(doc, 'Deleted resource history reverted')
 

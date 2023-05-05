@@ -55,7 +55,7 @@ tap.test('PDQm Query parameters: ', { autoend: true }, (t) => {
 
       request({
         url: `http://localhost:3447/fhir/Patient?${querystring.stringify(queryParams)}`,
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -77,7 +77,7 @@ tap.test('PDQm Query parameters: ', { autoend: true }, (t) => {
 
       request({
         url: `http://localhost:3447/fhir/Patient?${querystring.stringify(queryParams)}`,
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)

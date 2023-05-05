@@ -160,11 +160,11 @@ module.exports = () => {
     },
 
     users: {
-      sysadminUser: sysadminUser
+      sysadminUser
     },
 
-    getTestAuthHeaders: getTestAuthHeaders,
-    getAuthHeaders: getAuthHeaders,
+    getTestAuthHeaders,
+    getAuthHeaders,
 
     testOrganizations: () => {
       const testOrgs = {
@@ -198,7 +198,7 @@ module.exports = () => {
       return testOrgs
     },
 
-    updateTestOrganizationReferences: updateTestOrganizationReferences,
+    updateTestOrganizationReferences,
 
     testPractitioners: () => {
       const testPrac = {
@@ -246,7 +246,7 @@ module.exports = () => {
       return testPrac
     },
 
-    updateTestPractitionerReferences: updateTestPractitionerReferences,
+    updateTestPractitionerReferences,
 
     testPatients: () => {
       const testPatients = {
@@ -454,7 +454,7 @@ module.exports = () => {
       }
     },
 
-    updateTestPatientReferences: updateTestPatientReferences,
+    updateTestPatientReferences,
 
     createOrganization: (t, testOrg, callback) => {
       request.post({

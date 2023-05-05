@@ -27,9 +27,9 @@ const loadResource = (filename, conf) => {
 const post = (host, resourceType, headers, body, onSuccess) => {
   const url = `${host}/${resourceType}`
   request.post({
-    url: url,
-    body: body,
-    headers: headers
+    url,
+    body,
+    headers
   }, (err, res, body) => {
     if (err) {
       throw err
@@ -162,7 +162,7 @@ const MHDScenario = (headers, t) => {
       request.post({
         url: host,
         body: documentBundle,
-        headers: headers
+        headers
       }, (err, res, body) => {
         t.error(err, `POST ${host}`)
         t.equals(res.statusCode, 200, 'status code should be 200')
@@ -202,8 +202,8 @@ const MHDScenario = (headers, t) => {
     const url = `${host}/${path}`
     return new Promise((resolve) => {
       request({
-        url: url,
-        headers: headers
+        url,
+        headers
       }, (err, res, body) => {
         t.error(err, `GET ${url}`)
         t.equals(res.statusCode, 200, 'response status code should be 200')
@@ -247,8 +247,8 @@ const MHDScenario = (headers, t) => {
     const url = `${host}/${path}`
     return new Promise((resolve) => {
       request({
-        url: url,
-        headers: headers
+        url,
+        headers
       }, (err, res, body) => {
         t.error(err, `GET ${url}`)
         t.equals(res.statusCode, 200, 'response status code should be 200')
@@ -303,8 +303,8 @@ const MHDScenario = (headers, t) => {
     const url = `${host}/${path}`
     return new Promise((resolve) => {
       request({
-        url: url,
-        headers: headers
+        url,
+        headers
       }, (err, res, body) => {
         t.error(err, `GET ${url}`)
         t.equals(res.statusCode, 200, 'response status code should be 200')
@@ -322,7 +322,7 @@ const MHDScenario = (headers, t) => {
     const url = `${host}/${path}`
     return new Promise((resolve) => {
       request({
-        url: url,
+        url,
         headers: updatedHeaders
       }, (err, res, body) => {
         t.error(err, `GET ${url}`)

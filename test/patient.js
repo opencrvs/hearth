@@ -44,7 +44,7 @@ tap.test('Query Param - active: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?active=false',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -62,7 +62,7 @@ tap.test('Query Param - active: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?active=true',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -84,7 +84,7 @@ tap.test('Query Param - address: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address=2760%20Mlosi',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -103,7 +103,7 @@ tap.test('Query Param - address: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address:exact=2760%20Mlosi%20Street',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -122,7 +122,7 @@ tap.test('Query Param - address: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address=2760&address=Western%20Cape&address:exact=Kraaifontein',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -141,7 +141,7 @@ tap.test('Query Param - address: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address=1st&address=Eastern Cape&address:exact=Block 1',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -159,7 +159,7 @@ tap.test('Query Param - address: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address=Kraaifontein&address=Western Cape',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -181,7 +181,7 @@ tap.test('Query Param - address-city: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-city=Cape%20Town',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -200,7 +200,7 @@ tap.test('Query Param - address-city: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-city=Durban',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -220,7 +220,7 @@ tap.test('Query Param - address-country: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-country=South%20Africa',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -239,7 +239,7 @@ tap.test('Query Param - address-country: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-country=USA',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -259,7 +259,7 @@ tap.test('Query Param - address-postalcode: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-postalcode=7570',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -278,7 +278,7 @@ tap.test('Query Param - address-postalcode: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-postalcode=1122',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -298,7 +298,7 @@ tap.test('Query Param - address-state: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-state=Western%20Cape',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -317,7 +317,7 @@ tap.test('Query Param - address-state: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-state=KwaZulu-Natal',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -337,7 +337,7 @@ tap.test('Query Param - address - strings/startsWith/exact: ', { autoend: true }
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-state:contains=Cape',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -356,7 +356,7 @@ tap.test('Query Param - address - strings/startsWith/exact: ', { autoend: true }
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-state=western%20cape',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -375,7 +375,7 @@ tap.test('Query Param - address - strings/startsWith/exact: ', { autoend: true }
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-state=Western',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -394,7 +394,7 @@ tap.test('Query Param - address - strings/startsWith/exact: ', { autoend: true }
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-state:exact=Western%20Cape',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -413,7 +413,7 @@ tap.test('Query Param - address - strings/startsWith/exact: ', { autoend: true }
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?address-state:exact=Western%20Cap',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -434,7 +434,7 @@ tap.test('Query Param - birthdate: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?birthdate=1970-07-21',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -454,7 +454,7 @@ tap.test('Query Param - birthdate: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?birthdate=eq1970-07-21',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -474,7 +474,7 @@ tap.test('Query Param - birthdate: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?birthdate=eq1970',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -495,7 +495,7 @@ tap.test('Query Param - birthdate: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?birthdate=eq1970-07',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -516,7 +516,7 @@ tap.test('Query Param - birthdate: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?birthdate=ne1970-07-21',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -536,7 +536,7 @@ tap.test('Query Param - birthdate: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?birthdate=eq1970&birthdate=ne1970-07-30',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -556,7 +556,7 @@ tap.test('Query Param - birthdate: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?birthdate=ge1970-01&birthdate=le1970-10-25',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -577,7 +577,7 @@ tap.test('Query Param - birthdate: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?birthdate=le1970-07-25',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -597,7 +597,7 @@ tap.test('Query Param - birthdate: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?birthdate=ge1970-07-25',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -618,7 +618,7 @@ tap.test('Query Param - family: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?family=Matinyana',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -637,7 +637,7 @@ tap.test('Query Param - family: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?family=doesntexist',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -655,7 +655,7 @@ tap.test('Query Param - family: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?family:exact=Cook',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -674,7 +674,7 @@ tap.test('Query Param - family: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?family=Cook&family=Spray',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -695,7 +695,7 @@ tap.test('Query Param - Gender: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?gender=male',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -714,7 +714,7 @@ tap.test('Query Param - Gender: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?gender=unknown',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -734,7 +734,7 @@ tap.test('Query Param - given: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?given=Charlton',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -753,7 +753,7 @@ tap.test('Query Param - given: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?given=charlton',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -773,7 +773,7 @@ tap.test('Query Param - given: ', { autoend: true }, (t) => {
       // search for 'cha' should match 'Charlton'
       request({
         url: 'http://localhost:3447/fhir/Patient?given=cha',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -792,7 +792,7 @@ tap.test('Query Param - given: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?given=Charlton&given=Joseph',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -813,7 +813,7 @@ tap.test('Query Param - identifier: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=1007211154902',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -832,7 +832,7 @@ tap.test('Query Param - identifier: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=pshr:sanid|1007211154902',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -851,7 +851,7 @@ tap.test('Query Param - identifier: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=NOTTHERE',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -870,7 +870,7 @@ tap.test('Query Param - identifier: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=pshr:sanid|1007211154902&identifier=pshr:passport:za|1001113333933',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -890,7 +890,7 @@ tap.test('Query Param - identifier: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=|no-system-identifier',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -911,7 +911,7 @@ tap.test('Query Param - identifier: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=1007211154902&identifier=1001113333933',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -931,7 +931,7 @@ tap.test('Query Param - identifier: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=pshr:sanid|,pshr:passport:za|',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -952,7 +952,7 @@ tap.test('Query Param - identifier: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=non:existent:domain|',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -974,7 +974,7 @@ tap.test('Query Param - identifier: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=pshr:sanid|,non:existent:domain|',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -997,7 +997,7 @@ tap.test('Query Param - telecom: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?telecom=email|charlton@email.com',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1015,7 +1015,7 @@ tap.test('Query Param - telecom: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?telecom=email|charlton@email.com&telecom=phone|27831234567',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1033,7 +1033,7 @@ tap.test('Query Param - telecom: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?telecom=email|not-mine@email.com',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1053,7 +1053,7 @@ tap.test('Query Param (conditional) - email: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?email=charlton@email.com',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1074,7 +1074,7 @@ tap.test('pediatrics query parameters', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?mothersMaidenName.given=Mary',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1093,7 +1093,7 @@ tap.test('pediatrics query parameters', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?mothersMaidenName.given=Mary&mothersMaidenName.given=Jane',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1112,7 +1112,7 @@ tap.test('pediatrics query parameters', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?mothersMaidenName.given=NoMatch',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1130,7 +1130,7 @@ tap.test('pediatrics query parameters', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?mothersMaidenName.family=Smith',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1149,7 +1149,7 @@ tap.test('pediatrics query parameters', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?mothersMaidenName.family=Smith&mothersMaidenName.family=Mc',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1168,7 +1168,7 @@ tap.test('pediatrics query parameters', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?mothersMaidenName.family=Smit',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1188,7 +1188,7 @@ tap.test('pediatrics query parameters', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?mothersMaidenName.family=Smit&mothersMaidenName.family:exact=Smith',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1207,7 +1207,7 @@ tap.test('pediatrics query parameters', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?mothersMaidenName.family=NoMatch',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1225,7 +1225,7 @@ tap.test('pediatrics query parameters', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?multipleBirthInteger=2',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1244,7 +1244,7 @@ tap.test('pediatrics query parameters', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?multipleBirthInteger=5',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1264,7 +1264,7 @@ tap.test('Query Param - combined parameters: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?given=charlton&family=matinyana',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1278,7 +1278,7 @@ tap.test('Query Param - combined parameters: ', { autoend: true }, (t) => {
         // shouldn't match charlton - family name 'doe'
         request({
           url: 'http://localhost:3447/fhir/Patient?given=charlton&family=doe',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           t.error(err)
@@ -1297,7 +1297,7 @@ tap.test('Query Param - combined parameters: ', { autoend: true }, (t) => {
     basicPatientTest(t, (db, done) => {
       request({
         url: 'http://localhost:3447/fhir/Patient?identifier=1007211154902&given=charlton',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -1311,7 +1311,7 @@ tap.test('Query Param - combined parameters: ', { autoend: true }, (t) => {
         // shouldn't match charlton - search on different name
         request({
           url: 'http://localhost:3447/fhir/Patient?identifier=1007211154902&given=jane',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           t.error(err)
@@ -1339,7 +1339,7 @@ tap.test('patient should be saved correctly', (t) => {
 
       request.post({
         url: 'http://localhost:3447/fhir/Patient',
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -1387,7 +1387,7 @@ tap.test('patient endpoint should return an error', (t) => {
 
       request.post({
         url: 'http://localhost:3447/fhir/Patient',
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -1418,7 +1418,7 @@ tap.test('patient should support read', (t) => {
 
       request.post({
         url: 'http://localhost:3447/fhir/Patient',
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -1428,7 +1428,7 @@ tap.test('patient should support read', (t) => {
 
         request({
           url: `http://localhost:3447/fhir/Patient/${id}`,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           t.error(err)
@@ -1461,7 +1461,7 @@ tap.test('patient read should respond with 404 if not found', (t) => {
   basicPatientTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/Patient/573aff9fed5696d633aaaaaa',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -1484,7 +1484,7 @@ tap.test('patient should support vread', (t) => {
 
       request.post({
         url: 'http://localhost:3447/fhir/Patient',
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -1492,7 +1492,7 @@ tap.test('patient should support vread', (t) => {
 
         request({
           url: `http://localhost:3447${res.headers.location}`,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           t.error(err)
@@ -1527,7 +1527,7 @@ tap.test('vread should respond with 404 if version not found', (t) => {
 
       request.post({
         url: 'http://localhost:3447/fhir/Patient',
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -1537,7 +1537,7 @@ tap.test('vread should respond with 404 if version not found', (t) => {
 
         request({
           url: `http://localhost:3447/fhir/Patient/${id}/_history/2222`,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           t.error(err)
@@ -1569,7 +1569,7 @@ tap.test('patient should support update', (t) => {
       // save
       request.post({
         url: 'http://localhost:3447/fhir/Patient',
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -1579,7 +1579,7 @@ tap.test('patient should support update', (t) => {
         const id = res.headers.location.replace('/fhir/Patient/', '').replace(/\/_history\/.*/, '')
         const update = {
           resourceType: 'Patient',
-          id: id,
+          id,
           active: true,
           name: [
             {
@@ -1591,7 +1591,7 @@ tap.test('patient should support update', (t) => {
         // update
         request.put({
           url: `http://localhost:3447/fhir/Patient/${id}`,
-          headers: headers,
+          headers,
           body: update,
           json: true
         }, (err, res) => {
@@ -1602,7 +1602,7 @@ tap.test('patient should support update', (t) => {
           // read
           request({
             url: `http://localhost:3447/fhir/Patient/${id}`,
-            headers: headers,
+            headers,
             json: true
           }, (err, res, body) => {
             t.error(err)
@@ -1615,7 +1615,7 @@ tap.test('patient should support update', (t) => {
             // vread - history should contain original
             request({
               url: `http://localhost:3447${originalLocation}`,
-              headers: headers,
+              headers,
               json: true
             }, (err, res, body) => {
               t.error(err)
@@ -1652,7 +1652,7 @@ tap.test('patient should support multiple updates', (t) => {
       // save
       request.post({
         url: 'http://localhost:3447/fhir/Patient',
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -1662,7 +1662,7 @@ tap.test('patient should support multiple updates', (t) => {
         const id = res.headers.location.replace('/fhir/Patient/', '').replace(/\/_history\/.*/, '')
         const update = {
           resourceType: 'Patient',
-          id: id,
+          id,
           active: true,
           name: [
             {
@@ -1674,7 +1674,7 @@ tap.test('patient should support multiple updates', (t) => {
         // update
         request.put({
           url: `http://localhost:3447/fhir/Patient/${id}`,
-          headers: headers,
+          headers,
           body: update,
           json: true
         }, (err, res) => {
@@ -1687,7 +1687,7 @@ tap.test('patient should support multiple updates', (t) => {
           // read
           request({
             url: `http://localhost:3447/fhir/Patient/${id}`,
-            headers: headers,
+            headers,
             json: true
           }, (err, res, body) => {
             t.error(err)
@@ -1700,7 +1700,7 @@ tap.test('patient should support multiple updates', (t) => {
             // vread - history should contain original
             request({
               url: `http://localhost:3447${originalLocation}`,
-              headers: headers,
+              headers,
               json: true
             }, (err, res, body) => {
               t.error(err)
@@ -1712,7 +1712,7 @@ tap.test('patient should support multiple updates', (t) => {
 
               const update2 = {
                 resourceType: 'Patient',
-                id: id,
+                id,
                 active: true,
                 name: [
                   {
@@ -1724,7 +1724,7 @@ tap.test('patient should support multiple updates', (t) => {
               // update
               request.put({
                 url: `http://localhost:3447/fhir/Patient/${id}`,
-                headers: headers,
+                headers,
                 body: update2,
                 json: true
               }, (err, res) => {
@@ -1735,7 +1735,7 @@ tap.test('patient should support multiple updates', (t) => {
                 // read
                 request({
                   url: `http://localhost:3447/fhir/Patient/${id}`,
-                  headers: headers,
+                  headers,
                   json: true
                 }, (err, res, body) => {
                   t.error(err)
@@ -1748,7 +1748,7 @@ tap.test('patient should support multiple updates', (t) => {
                   // vread - history should contain original
                   request({
                     url: `http://localhost:3447${originalLocation}`,
-                    headers: headers,
+                    headers,
                     json: true
                   }, (err, res, body) => {
                     t.error(err)
@@ -1761,7 +1761,7 @@ tap.test('patient should support multiple updates', (t) => {
                     // vread - history should contain the first update
                     request({
                       url: `http://localhost:3447${updateLocation}`,
-                      headers: headers,
+                      headers,
                       json: true
                     }, (err, res, body) => {
                       t.error(err)
@@ -1802,7 +1802,7 @@ tap.test('update should replace existing documents', (t) => {
       // save
       request.post({
         url: 'http://localhost:3447/fhir/Patient',
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -1811,7 +1811,7 @@ tap.test('update should replace existing documents', (t) => {
         const id = res.headers.location.replace('/fhir/Patient/', '').replace(/\/_history\/.*/, '')
         const update = {
           resourceType: 'Patient',
-          id: id,
+          id,
           active: true,
           name: [
             {
@@ -1823,7 +1823,7 @@ tap.test('update should replace existing documents', (t) => {
         // update
         request.put({
           url: `http://localhost:3447/fhir/Patient/${id}`,
-          headers: headers,
+          headers,
           body: update,
           json: true
         }, (err, res) => {
@@ -1834,7 +1834,7 @@ tap.test('update should replace existing documents', (t) => {
           // read
           request({
             url: `http://localhost:3447/fhir/Patient/${id}`,
-            headers: headers,
+            headers,
             json: true
           }, (err, res, body) => {
             t.error(err)
@@ -1868,7 +1868,7 @@ tap.test('read should respond with 404 not found if invalid value for id is used
   basicPatientTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/Patient/th%21s%21sb%24d',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -1883,7 +1883,7 @@ tap.test('vread should respond with 404 not found if invalid value for vid is us
   basicPatientTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/Patient/1234/_history/th%21s%21sb%24d',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -1906,7 +1906,7 @@ tap.test('patient should support standard _id parameter', (t) => {
 
       request.post({
         url: 'http://localhost:3447/fhir/Patient',
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -1916,7 +1916,7 @@ tap.test('patient should support standard _id parameter', (t) => {
 
         request({
           url: `http://localhost:3447/fhir/Patient?_id=${id}`,
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           t.error(err)
@@ -1952,7 +1952,7 @@ tap.test('patient update should insert document when boolean updateCreate true a
 
       request.put({
         url: `http://localhost:3447/fhir/Patient/${pat.id}`,
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -1985,7 +1985,7 @@ tap.test('patient update should insert document when string updateCreate true an
 
       request.put({
         url: `http://localhost:3447/fhir/Patient/${pat.id}`,
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -2018,7 +2018,7 @@ tap.test('patient update should error when boolean updateCreate false and docume
 
       request.put({
         url: `http://localhost:3447/fhir/Patient/${pat.id}`,
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -2050,7 +2050,7 @@ tap.test('patient update should error when string updateCreate false and documen
 
       request.put({
         url: `http://localhost:3447/fhir/Patient/${pat.id}`,
-        headers: headers,
+        headers,
         body: pat,
         json: true
       }, (err, res, body) => {
@@ -2102,7 +2102,7 @@ tap.test('patient should support complex chained parameters', (t) => {
           env.createResource(t, pat, 'Patient', () => {
             request({
               url: 'http://localhost:3447/fhir/Patient?careprovider.location.name=Greenwood',
-              headers: headers,
+              headers,
               json: true
             }, (err, res, body) => {
               t.error(err)

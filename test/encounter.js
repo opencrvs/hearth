@@ -57,7 +57,7 @@ tap.test('Encounter resource tests', { autoend: true }, (t) => {
       // search for all encounters under Greenwood (should match patient Charlton with encounter for Alison)
       request({
         url: `http://localhost:3447/fhir/Encounter?practitioner.organization=${orgs.greenwood.organization.id}`,
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -77,7 +77,7 @@ tap.test('Encounter resource tests', { autoend: true }, (t) => {
       // search for all encounters
       request({
         url: 'http://localhost:3447/fhir/Encounter',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)

@@ -48,7 +48,7 @@ tap.test('observation should support searches on encounter', (t) => {
   basicObservationTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/fhir/Observation?encounter=22222',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)

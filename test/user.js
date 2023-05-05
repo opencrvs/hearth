@@ -75,7 +75,7 @@ tap.test('user should be able to authenticate', (t) => {
   basicUserTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/api/authenticate/jane@test.org',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -93,7 +93,7 @@ tap.test('user authenticate should return status 404 if user doesn\'t exist', (t
   basicUserTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/api/authenticate/meh@test.org',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -108,7 +108,7 @@ tap.test('user authenticate should return status 423 if user is locked', (t) => 
   basicUserTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/api/authenticate/locked@test.org',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -123,7 +123,7 @@ tap.test('user should support reads on email', (t) => {
   basicUserTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/api/user/jane@test.org',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -140,7 +140,7 @@ tap.test('user read should return not found if the user doesn\'t exist', (t) => 
   basicUserTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/api/user/meh@test.org',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -171,7 +171,7 @@ tap.test('user should be created on a POST', (t) => {
     request({
       url: 'http://localhost:3447/api/user',
       method: 'POST',
-      headers: headers,
+      headers,
       body: {
         email: 'created@test.org',
         type: 'sysadmin',
@@ -201,7 +201,7 @@ tap.test('user create should return conflict if user already exists', (t) => {
     request({
       url: 'http://localhost:3447/api/user',
       method: 'POST',
-      headers: headers,
+      headers,
       body: {
         email: 'jane@test.org',
         type: 'sysadmin',
@@ -222,7 +222,7 @@ tap.test('user should be updated', (t) => {
     request({
       url: 'http://localhost:3447/api/user/jane@test.org',
       method: 'PUT',
-      headers: headers,
+      headers,
       body: {
         type: 'updated'
       },
@@ -248,7 +248,7 @@ tap.test('user update should return 404 if the user isn\'t found', (t) => {
     request({
       url: 'http://localhost:3447/api/user/meh@test.org',
       method: 'PUT',
-      headers: headers,
+      headers,
       body: {
         type: 'updated'
       },
@@ -329,7 +329,7 @@ tap.test('user search should return user with matching resource parameter', (t) 
 
       request({
         url: 'http://localhost:3447/api/user?resource=Practitioner/1234',
-        headers: headers,
+        headers,
         json: true
       }, (err, res, body) => {
         t.error(err)
@@ -347,7 +347,7 @@ tap.test('user search should return 404 when no users found on supported query p
   basicUserTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/api/user?resource=Practitioner/1234',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)
@@ -362,7 +362,7 @@ tap.test('user search should return 400 when query parameter not supported', (t)
   basicUserTest(t, (db, done) => {
     request({
       url: 'http://localhost:3447/api/user',
-      headers: headers,
+      headers,
       json: true
     }, (err, res, body) => {
       t.error(err)

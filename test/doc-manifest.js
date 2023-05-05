@@ -48,7 +48,7 @@ tap.test('DocumentManifest - should return all results when there are no paramet
         // when
         request({
           url: 'http://localhost:3447/fhir/DocumentManifest',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -80,7 +80,7 @@ tap.test('DocumentManifest - should search by author reference', (t) => {
         // when
         request({
           url: 'http://localhost:3447/fhir/DocumentManifest?author=Device/12345',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -111,7 +111,7 @@ tap.test('DocumentManifest - should search by content-ref reference', (t) => {
         // when
         request({
           url: 'http://localhost:3447/fhir/DocumentManifest?content-ref=DocumentReference/54321',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -205,7 +205,7 @@ tap.test('DocumentManifest - should search by identifier', (t) => {
         // when
         request({
           url: 'http://localhost:3447/fhir/DocumentManifest?identifier=sample-system|randomnumber-1234567',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -237,7 +237,7 @@ tap.test('DocumentManifest - should search by subject for the supplied patient p
         // when
         request({
           url: 'http://localhost:3447/fhir/DocumentManifest?patient=Patient/123',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -268,7 +268,7 @@ tap.test('DocumentManifest - should search by recipient reference', (t) => {
         // when
         request({
           url: 'http://localhost:3447/fhir/DocumentManifest?recipient=Patient/12345',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -301,7 +301,7 @@ tap.test('DocumentManifest - should search by related-id reference', (t) => {
         request({
           // url: 'http://localhost:3447/fhir/DocumentManifest?related-id=sample-system|randomnumber-1234567',
           url: 'http://localhost:3447/fhir/DocumentManifest?related-id=sample-system|randomnumber-1234567',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -333,7 +333,7 @@ tap.test('DocumentManifest - should search by related-ref reference', (t) => {
         // when
         request({
           url: 'http://localhost:3447/fhir/DocumentManifest?related-ref=DocumentReference/54321',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -395,7 +395,7 @@ tap.test('DocumentManifest - should search by status', (t) => {
         // when
         request({
           url: 'http://localhost:3447/fhir/DocumentManifest?status=superseded',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -426,7 +426,7 @@ tap.test('DocumentManifest - should search by subject for the supplied subject p
         // when
         request({
           url: 'http://localhost:3447/fhir/DocumentManifest?subject=Patient/123',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -468,7 +468,7 @@ tap.test('DocumentManifest - should search by type', (t) => {
         // when
         request({
           url: 'http://localhost:3447/fhir/DocumentManifest?type=testSys|testCode',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -502,7 +502,7 @@ tap.test('DocumentManifest - should perform chained search by patient.identifier
           // when
           request({
             url: 'http://localhost:3447/fhir/DocumentManifest?patient.identifier=pshr:sanid|1007211154902',
-            headers: headers,
+            headers,
             json: true
           }, (err, res, body) => {
             // then
@@ -538,7 +538,7 @@ tap.test('DocumentManifest - should perform chained search by patient.identifier
             // when
             request({
               url: 'http://localhost:3447/fhir/DocumentManifest?patient.identifier=pshr:passport:za|1001113333933',
-              headers: headers,
+              headers,
               json: true
             }, (err, res, body) => {
               // then
@@ -568,7 +568,7 @@ tap.test('DocumentManifest - should perform chained search by patient.identifier
         // when
         request({
           url: 'http://localhost:3447/fhir/DocumentManifest?patient.identifier=pshr:sanid|no-exist',
-          headers: headers,
+          headers,
           json: true
         }, (err, res, body) => {
           // then
@@ -600,7 +600,7 @@ tap.test('DocumentManifest - should perform chained search by author.given', (t)
           // when
           request({
             url: 'http://localhost:3447/fhir/DocumentManifest?author.given=Alison',
-            headers: headers,
+            headers,
             json: true
           }, (err, res, body) => {
             // then
@@ -635,7 +635,7 @@ tap.test('DocumentManifest - should perform chained search by author.family', (t
           // when
           request({
             url: 'http://localhost:3447/fhir/DocumentManifest?author.family=Tobi',
-            headers: headers,
+            headers,
             json: true
           }, (err, res, body) => {
             // then
