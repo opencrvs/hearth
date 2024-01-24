@@ -2,6 +2,9 @@
   "name": "hearth",
   "version": "1.1.0",
   "description": "Hearth, a home for FHIR. A fast FHIR-compliant server.",
+  "engines": {
+    "node": "18.19.x"
+  },
   "scripts": {
     "start": "node lib/server.js",
     "stop": "pkill -SIGINT Hearth",
