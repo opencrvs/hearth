@@ -2,6 +2,9 @@
   "name": "hearth",
   "version": "1.1.0",
   "description": "Hearth, a home for FHIR. A fast FHIR-compliant server.",
+  "engines": {
+    "node": "18.19.x"
+  },
   "scripts": {
     "start": "node lib/server.js",
     "stop": "pkill -SIGINT Hearth",
@@ -21,23 +24,23 @@
     "licenses:generate": "license-checker --production --json --customPath license-format.json --relativeLicensePath --out licenses.json"
   },
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^2.6.4",
     "atna-audit": "^1.0.1",
-    "body-parser": "^1.18.3",
+    "body-parser": "1.19.2",
     "cors": "^2.8.1",
-    "express": "^4.16.3",
+    "express": "4.17.3",
     "express-xml-bodyparser": "^0.3.0",
     "fhir": "^3.3.1",
     "jsonwebtoken": "^8.2.2",
     "lodash": "^4.17.10",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "mongodb": "3.5.4",
     "mongodb-queue": "^3.1.0",
-    "nconf": "^0.11.3",
+    "nconf": "^0.11.4",
     "request": "^2.87.0",
     "stdio": "^0.2.7",
     "talisman": "^1.1.4",
-    "urijs": "^1.19.2",
+    "urijs": "^1.19.11",
     "uuid": "^3.3.3",
     "winston": "^2.4.2"
   },
@@ -48,7 +51,7 @@
     "cross-env": "^5.1.6",
     "faker": "^4.1.0",
     "glossy": "^0.1.7",
-    "libxmljs": "^0.19.7",
+    "libxmljs": "0.19.8",
     "license-checker": "^25.0.1",
     "mustache": "^3.1.0",
     "neo-async": "^2.5.1",
@@ -72,7 +75,7 @@
   "resolutions": {
     "lodash": "4.17.21",
     "xmlbuilder": "9.0.7",
-    "libxmljs": "0.19.7",
+    "libxmljs": "0.19.8",
     "tar": "4.4.19"
   }
 }
