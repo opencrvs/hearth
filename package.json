@@ -72,7 +72,7 @@
   "resolutions": {
     "lodash": "4.17.21",
     "xmlbuilder": "9.0.7",
-    "libxmljs": "0.19.7",
+    "libxmljs": "0.19.8",
     "tar": "4.4.19"
   }
 }
